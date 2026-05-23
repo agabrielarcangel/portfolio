@@ -405,6 +405,18 @@ nav {
 .pal-blue { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
 .pal-green { background: linear-gradient(90deg, var(--green), #059669); }
 .pal-rose { background: linear-gradient(90deg, var(--rose), var(--accent2)); }
+.pal-amber { background: linear-gradient(90deg, var(--amber), #f97316); }
+.pal-teal { background: linear-gradient(90deg, #0d9488, #06b6d4); }
+.pal-purple { background: linear-gradient(90deg, var(--accent2), #9333ea); }
+
+.proj-links { display: flex; gap: 0.6rem; margin-top: 0.8rem; }
+.proj-link {
+  font-size: 0.75rem; font-weight: 700; color: var(--text2);
+  text-decoration: none; padding: 0.3rem 0.9rem;
+  background: var(--bg); box-shadow: var(--n-out-xs);
+  border-radius: 50px; transition: all 0.2s;
+}
+.proj-link:hover { box-shadow: var(--n-in-sm); color: var(--accent); }
 
 .proj-num {
   font-family: 'JetBrains Mono', monospace;
@@ -813,6 +825,71 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
       <p class="proj-desc">User-facing interface components emphasizing responsive layouts, usability, and visual consistency — translating design specifications into polished, production-ready React components.</p>
       <div class="proj-tags">
         <span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">Tailwind CSS</span><span class="chip">HTML</span><span class="chip">CSS</span>
+      </div>
+    </div>
+
+    <div class="proj-card fu d1">
+      <div class="proj-accent-line pal-amber"></div>
+      <div class="proj-num">04 / SaaS</div>
+      <h3 class="proj-title">Multi-Tenant Admin Dashboard</h3>
+      <p class="proj-desc">Role-based admin panel with per-tenant configuration, user management, audit logs, and granular access control. Supports dynamic permission sets and real-time activity monitoring.</p>
+      <div class="proj-tags">
+        <span class="chip">Laravel</span><span class="chip">React</span><span class="chip">Zustand</span><span class="chip">JWT</span><span class="chip">PostgreSQL</span>
+      </div>
+      <div class="proj-links">
+        <a href="#" class="proj-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="proj-card fu d2">
+      <div class="proj-accent-line pal-teal"></div>
+      <div class="proj-num">05 / Developer Tool</div>
+      <h3 class="proj-title">REST API Scaffolding CLI</h3>
+      <p class="proj-desc">A command-line tool that generates boilerplate Laravel API resources — controllers, form requests, policies, and test stubs — from a single schema definition. Cuts setup time significantly.</p>
+      <div class="proj-tags">
+        <span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">Node.js</span><span class="chip">CLI</span><span class="chip">Git</span>
+      </div>
+      <div class="proj-links">
+        <a href="#" class="proj-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="proj-card fu d3">
+      <div class="proj-accent-line pal-purple"></div>
+      <div class="proj-num">06 / Data & Science</div>
+      <h3 class="proj-title">Physics Thesis Simulation Engine</h3>
+      <p class="proj-desc">Computational simulation and data analysis toolkit developed for an Applied Physics thesis at UST. Covers numerical methods, signal processing, and automated chart generation from raw sensor data.</p>
+      <div class="proj-tags">
+        <span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Matplotlib</span><span class="chip">MATLAB</span><span class="chip">LaTeX</span>
+      </div>
+      <div class="proj-links">
+        <a href="#" class="proj-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="proj-card fu d1">
+      <div class="proj-accent-line pal-blue"></div>
+      <div class="proj-num">07 / Web App</div>
+      <h3 class="proj-title">Client Invoicing & Sync Portal</h3>
+      <p class="proj-desc">Full-stack invoicing portal with client sync, payment status tracking, and accounting workflow automation. Integrates with third-party accounting APIs for seamless data reconciliation.</p>
+      <div class="proj-tags">
+        <span class="chip">Laravel</span><span class="chip">React</span><span class="chip">TanStack Query</span><span class="chip">MySQL</span><span class="chip">REST API</span>
+      </div>
+      <div class="proj-links">
+        <a href="#" class="proj-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="proj-card fu d2">
+      <div class="proj-accent-line pal-green"></div>
+      <div class="proj-num">08 / Frontend</div>
+      <h3 class="proj-title">Form Validation Framework</h3>
+      <p class="proj-desc">Reusable form validation layer built with React Hook Form and Zod schemas — providing type-safe, composable form logic used across multiple product modules with consistent UX patterns.</p>
+      <div class="proj-tags">
+        <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Zod</span><span class="chip">React Hook Form</span><span class="chip">ShadCN</span>
+      </div>
+      <div class="proj-links">
+        <a href="#" class="proj-link">GitHub ↗</a>
       </div>
     </div>
 
