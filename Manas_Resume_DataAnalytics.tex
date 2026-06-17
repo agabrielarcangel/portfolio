@@ -1,0 +1,173 @@
+%=======================================================================
+%  Gabriel Adrian Manas — Data Analyst / Data Scientist resume
+%  Tailored from the Medical Physics CV toward Data Science / Analytics.
+%  Compiles with pdfLaTeX (Overleaf-ready). Standard packages only.
+%=======================================================================
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+% ---- colours ----------------------------------------------------------
+\definecolor{accent}{HTML}{2A4B8D}   % deep analytical blue
+\definecolor{muted}{HTML}{5A6473}
+
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+
+% ---- global layout ----------------------------------------------------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\baselinestretch}{1.02}
+
+% ---- helper macros ----------------------------------------------------
+% Section header with coloured rule
+\newcommand{\cvsec}[1]{%
+  \vspace{7pt}%
+  {\bfseries\large\color{accent}#1}\par
+  \vspace{2pt}{\color{accent!55}\hrule height 0.7pt}\vspace{4pt}%
+}
+
+% Skill category: bold label on its own line, then the items
+\newcommand{\skillcat}[2]{{\bfseries #1}\\ #2 \\[4pt]}
+
+% Experience / project entry: title -- subtitle -- meta(date)
+\newcommand{\entry}[3]{%
+  \vspace{5pt}%
+  {\bfseries #1}\hfill{\small\color{muted}#3}\\
+  {\itshape #2}\par\vspace{1pt}%
+}
+
+% Tech-stack / tools line under an entry
+\newcommand{\stack}[1]{{\footnotesize\color{muted}#1}\par\vspace{2pt}}
+
+% Compact bullet list
+\newenvironment{cvbullets}
+  {\begin{itemize}[leftmargin=1.15em,itemsep=1.5pt,topsep=2pt,parsep=0pt,
+     label=\textcolor{accent}{\footnotesize$\bullet$}]}
+  {\end{itemize}}
+
+%=======================================================================
+\begin{document}
+
+% ----------------------------- HEADER ----------------------------------
+\begin{center}
+  {\fontsize{22}{24}\selectfont\bfseries GABRIEL ADRIAN MANAS}\\[3pt]
+  {\large\color{accent} Data Analyst \ \textbar\ \ Data Scientist}\\[5pt]
+  {\small
+    \href{mailto:a.gabrielmanas@gmail.com}{a.gabrielmanas@gmail.com}
+    \ \textbar\ \ \href{mailto:gabrieladrian.manas@ust.edu.ph}{gabrieladrian.manas@ust.edu.ph}
+    \ \textbar\ \ 0960 511 8496
+    \ \textbar\ \ Manila / Cavite
+    \ \textbar\ \ \href{https://linkedin.com/in/gabrielmanas}{LinkedIn}
+  }
+\end{center}
+\vspace{2pt}
+
+% ----------------------------- TWO COLUMNS -----------------------------
+\noindent
+\begin{minipage}[t]{0.31\textwidth}
+%======================= LEFT COLUMN ===================================
+
+\cvsec{Profile}
+Medical physicist and quantitative researcher moving into \textbf{data
+science}, with an MS in Applied Physics and a strong foundation in
+\textbf{Python, statistics, and numerical modeling}. I turn measurement,
+imaging, and simulation data into rigorous, decision-ready analysis --- and
+communicate it through dashboards in \textbf{Power BI and Tableau}.
+
+\cvsec{Technical Skills}
+\skillcat{Programming}{Python, MATLAB, SQL}
+\skillcat{Analysis \& Modeling}{pandas, NumPy, SciPy, statistical analysis, numerical methods, curve fitting, Monte Carlo (PHITS)}
+\skillcat{Visualization \& BI}{Power BI, Tableau, Matplotlib, Excel}
+\skillcat{Domain Data}{Imaging QA/QC, dosimetry, radiation measurement}
+\skillcat{Tools}{Jupyter, Git, \LaTeX{}}
+
+\cvsec{Education}
+{\bfseries M.S. Applied Physics}\\
+{\small (Medical Physics)}\\
+University of Santo Tomas\\
+{\small\color{muted}2026 -- Present}
+\vspace{4pt}\\
+{\bfseries B.S. Applied Physics}\\
+{\small (Instrumentation)}\\
+University of Santo Tomas\\
+{\small\color{muted}2021 -- 2025}
+\vspace{3pt}\\
+{\footnotesize\itshape Thesis:} {\footnotesize Numerical Evaluation of
+Bragg--Gray Cavity Integrals --- numerical modeling of stopping-power
+ratios in radiation dosimetry (Python / MATLAB).}
+
+\cvsec{Core Strengths}
+\begin{cvbullets}
+  \item Statistical \& numerical analysis
+  \item Scientific computing in Python
+  \item Data visualization \& storytelling
+  \item QA/QC \& measurement data
+\end{cvbullets}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.64\textwidth}
+%======================= RIGHT COLUMN ==================================
+
+\cvsec{Experience}
+
+\entry{Junior Medical Physicist}{Medical Physics \& Health Physics Services, Inc. (MPHPS)}{Apr 2026 -- Present}
+\stack{Python, Excel, Imaging QA}
+\begin{cvbullets}
+  \item Perform \textbf{performance testing and quality control} across
+        imaging modalities (CT, radiography/fluoroscopy, mammography,
+        PET/CT, SPECT/CT), capturing quantitative image-quality and
+        radiation-output measurements.
+  \item Analyze measurement data against regulatory tolerances to verify
+        equipment performance and \textbf{flag deviations}, working with
+        repeated QC metrics across machines and sites.
+\end{cvbullets}
+
+\entry{Science Teacher (Elementary -- Senior High)}{Hephzibah School Inc.}{Jun 2025 -- Apr 2026}
+\begin{cvbullets}
+  \item Taught science and quantitative reasoning, translating statistical
+        and analytical concepts into clear, accessible explanations ---
+        sharpening data-communication skills.
+\end{cvbullets}
+
+\entry{Medical Physics Intern}{UP -- Philippine General Hospital (PGH)}{May -- Jun 2024}
+\stack{Excel, Dose Calculations, QA Documentation}
+\begin{cvbullets}
+  \item Collected, encoded, and validated \textbf{patient dose data} and
+        performed activity and dose calculations across diagnostic
+        radiology, nuclear medicine, and radiation oncology.
+  \item Conducted radiation surveys and compiled QA/compliance
+        documentation, organizing measurement datasets across X-ray, CT,
+        fluoroscopy, MRI, SPECT/CT, PET/CT, brachytherapy, and LINAC systems.
+\end{cvbullets}
+
+\cvsec{Research \& Data Projects}
+
+\entry{Undergraduate Thesis --- Bragg--Gray Cavity Integrals}{Python, MATLAB --- numerical analysis}{2025}
+\begin{cvbullets}
+  \item Built numerical models for stopping-power ratios in radiation
+        dosimetry; \textbf{modeled mass electronic stopping power as a
+        Gaussian} and evaluated cavity integrals by numerical integration.
+\end{cvbullets}
+
+\entry{Monte Carlo Simulation Study}{PHITS --- radiation transport}{2025}
+\begin{cvbullets}
+  \item Ran Monte Carlo simulations and analyzed simulation output to
+        determine Bragg--Gray stopping-power ratios.
+\end{cvbullets}
+
+\entry{Research Dissemination}{Quantitative results, 3 venues}{2025}
+\begin{cvbullets}
+  \item Presented findings at the \textbf{43rd Samahang Pisika ng Pilipinas}
+        Conference, the UST RCNAS Symposium, and the UST Mathematics \&
+        Physics Seminar.
+\end{cvbullets}
+
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,149 @@
+%=======================================================================
+%  Gabriel Adrian Manas — Data Analyst / Data Scientist
+%  SINGLE-COLUMN, ATS-friendly resume. pdfLaTeX / Overleaf-ready.
+%=======================================================================
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[left=0.6in,right=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\definecolor{accent}{HTML}{1F3A6E}
+\definecolor{muted}{HTML}{555555}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.03}
+
+% Section header: uppercase label + full-width rule
+\newcommand{\rsec}[1]{%
+  \vspace{6pt}%
+  {\normalsize\bfseries\color{accent}\MakeUppercase{#1}}\par
+  \vspace{1pt}{\color{accent}\hrule height 1pt}\vspace{4pt}%
+}
+
+% Job/entry header: role (bold) ... date (right); org (italic) on next line
+\newcommand{\job}[3]{%
+  \vspace{4pt}%
+  {\bfseries #1}\hfill{\small\color{muted}#2}\\
+  {\itshape #3}\par\vspace{1pt}%
+}
+
+\newenvironment{bullets}
+  {\begin{itemize}[leftmargin=1.25em,itemsep=1pt,topsep=1pt,parsep=0pt,
+     label=\textcolor{accent}{\footnotesize$\bullet$}]}
+  {\end{itemize}}
+
+%=======================================================================
+\begin{document}
+
+% ------------------------------ HEADER ---------------------------------
+\begin{center}
+  {\fontsize{22}{24}\selectfont\bfseries GABRIEL ADRIAN MANAS}\\[2pt]
+  {\large\color{accent}\bfseries Data Analyst / Data Scientist}\\[4pt]
+  {\small
+    \href{mailto:a.gabrielmanas@gmail.com}{a.gabrielmanas@gmail.com} \ $\vert$ \
+    \href{mailto:gabrieladrian.manas@ust.edu.ph}{gabrieladrian.manas@ust.edu.ph} \ $\vert$ \
+    0960 511 8496 \ $\vert$ \ Manila / Cavite \ $\vert$ \
+    \href{https://linkedin.com/in/gabrielmanas}{linkedin.com/in/gabrielmanas}
+  }
+\end{center}
+
+% ------------------------------ SUMMARY --------------------------------
+\rsec{Summary}
+Medical physicist and quantitative researcher transitioning into \textbf{data science / analytics},
+backed by an MS in Applied Physics and a strong foundation in \textbf{Python, statistics, and numerical
+modeling}. Experienced turning measurement, imaging, simulation, and business data into rigorous,
+decision-ready analysis --- and communicating it through dashboards in \textbf{Power BI and Tableau}.
+Also a working full-stack developer, comfortable writing SQL and building data pipelines end to end.
+
+% ------------------------------ SKILLS ---------------------------------
+\rsec{Technical Skills}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{1.75in}X@{}}
+Programming \& Querying & Python, SQL, MATLAB, R (familiar) \\
+Data \& Analysis        & pandas, NumPy, SciPy, scikit-learn, statsmodels, statistical analysis, numerical methods, Monte Carlo (PHITS) \\
+Visualization \& BI     & Power BI, Tableau, Matplotlib, Seaborn, Excel, Looker Studio \\
+Databases \& Tools      & MySQL, PostgreSQL, Jupyter, Git/GitHub, Docker, \LaTeX{} \\
+Engineering (secondary) & Laravel, PHP, React, REST APIs \\
+Domain                  & Medical imaging QA/QC, dosimetry, radiation safety \\
+\end{tabularx}
+
+% ----------------------------- EXPERIENCE ------------------------------
+\rsec{Experience}
+
+\job{Junior Medical Physicist}{Apr 2026 -- Present}{Medical Physics \& Health Physics Services, Inc. (MPHPS)}
+\begin{bullets}
+  \item Capture and analyze \textbf{quantitative performance data} across imaging modalities (CT, radiography/fluoroscopy, mammography, PET/CT, SPECT/CT) during QA testing.
+  \item Compare image-quality and radiation-output metrics against regulatory tolerances to verify performance and \textbf{flag deviations}, applying statistical QC across repeated measurements.
+\end{bullets}
+
+\job{Data Analyst / Full-Stack Developer}{Jun 2025 -- Present}{Remote Freelance Work}
+\begin{bullets}
+  \item Built \textbf{revenue, MRR, and churn reporting} for a subscription product; wrote SQL across billing and subscription tables to surface weekly finance and ops metrics.
+  \item Designed \textbf{dashboards and KPI views (Power BI)} for pricing, add-on adoption, and billing configuration, replacing manual spreadsheet pulls with repeatable queries.
+  \item Owned data validation and reconciliation for invoices and client sync; built Laravel/React features supporting the reporting workflows.
+\end{bullets}
+
+\job{Science Teacher (Elementary -- Senior High)}{Jun 2025 -- Apr 2026}{Hephzibah School Inc.}
+\begin{bullets}
+  \item Taught science and quantitative reasoning, translating statistical and analytical concepts into clear, accessible explanations --- sharpening data-communication skills.
+\end{bullets}
+
+\job{Data \& Backend Developer}{Dec 2024 -- May 2025}{Beth Aven --- E-Commerce}
+\begin{bullets}
+  \item Wrote \textbf{SQL for sales, inventory, and order analytics}, giving the team visibility into product performance and stock movement.
+  \item Built ETL-style flows from operational tables into clean, reporting-friendly views.
+\end{bullets}
+
+\job{Medical Physics Intern}{May -- Jun 2024}{UP -- Philippine General Hospital (PGH)}
+\begin{bullets}
+  \item Collected, encoded, and validated \textbf{patient dose data} and performed activity/dose calculations across diagnostic radiology, nuclear medicine, and radiation oncology.
+  \item Conducted radiation surveys and compiled QA/compliance documentation across X-ray, CT, MRI, SPECT/CT, PET/CT, brachytherapy, and LINAC systems.
+\end{bullets}
+
+\job{Junior Developer}{2025}{HPL Game Design}
+\begin{bullets}
+  \item Built responsive, data-driven UI components and instrumented user-interaction tracking feeding engagement views.
+\end{bullets}
+
+\job{Full-Stack Developer Intern}{2023}{NexVision}
+\begin{bullets}
+  \item Built SQL-backed reporting features and database-driven views; assisted with data cleanup and API integration.
+\end{bullets}
+
+% --------------------------- PROJECTS ----------------------------------
+\rsec{Projects \& Research}
+
+\job{Undergraduate Thesis --- Numerical Evaluation of Bragg--Gray Cavity Integrals}{2025}{Python, MATLAB}
+\begin{bullets}
+  \item Built numerical models for stopping-power ratios in radiation dosimetry; \textbf{modeled mass electronic stopping power as a Gaussian} and evaluated cavity integrals by numerical integration.
+\end{bullets}
+
+\job{PHITS Monte Carlo Simulation}{2025}{Python, PHITS}
+\begin{bullets}
+  \item Ran radiation-transport simulations (\textbf{1M+ histories}) and analyzed output to determine Bragg--Gray stopping-power ratios and validate the analytical model.
+\end{bullets}
+
+\job{Revenue \& Subscription BI Dashboard}{2025}{Power BI, SQL, DAX}
+\begin{bullets}
+  \item MRR, churn, retention, and ARPU from modeled SQL views; replaced weekly manual spreadsheets with a single live report.
+\end{bullets}
+
+% ------------------------- PRESENTATIONS -------------------------------
+\rsec{Research Presentations}
+\begin{bullets}
+  \item \textbf{43rd Samahang Pisika ng Pilipinas Physics Conference (2025)} --- ``Numerical Evaluation of Bragg--Gray Cavity Integrals by Modeling the Mass Electronic Stopping Power as a Gaussian Function.''
+  \item \textbf{UST Research Center for Natural and Applied Sciences Symposium (2025)} --- ``Numerical Evaluation of Bragg--Gray Cavity Integrals.''
+  \item \textbf{UST Department of Mathematics and Physics Seminar (2025)} --- ``Using PHITS to Determine the Bragg--Gray Stopping Power Ratio.''
+\end{bullets}
+
+% ---------------------------- EDUCATION --------------------------------
+\rsec{Education}
+{\bfseries M.S. Applied Physics} {\itshape (Medical Physics)} --- University of Santo Tomas \hfill {\small\color{muted}2026 -- Present}\\
+{\bfseries B.S. Applied Physics} {\itshape (Instrumentation)} --- University of Santo Tomas \hfill {\small\color{muted}2021 -- 2025}
+
+\end{document}

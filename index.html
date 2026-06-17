@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gabriel Adrian Manas — Full-Stack Developer</title>
+<title>Gabriel Adrian Manas — Data Analyst / Data Scientist</title>
+<meta name="description" content="Gabriel Adrian Manas — Data Analyst &amp; Data Scientist with a medical physicist's rigor. Python, SQL, Power BI, Tableau, MATLAB &amp; Monte Carlo simulation. Turning complex, high-volume data into decision-ready insight.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -18,6 +19,7 @@
   --green: #2eb89a;
   --amber: #d97706;
   --rose: #e05c8a;
+  --cyan: #0ea5b7;
   --text: #1e2535;
   --text2: #4a5568;
   --text3: #8a96a8;
@@ -110,7 +112,7 @@ nav {
   grid-template-columns: 1fr 380px;
   gap: 3rem;
   align-items: center;
-  padding: 9rem 4rem 5rem;
+  padding: 9rem 4rem 4rem;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -151,9 +153,10 @@ nav {
 
 .hero-bio {
   font-size: 0.97rem; line-height: 1.85; color: var(--text2);
-  max-width: 520px; margin-bottom: 2.4rem;
+  max-width: 540px; margin-bottom: 2.4rem;
   animation: fup 0.7s 0.24s ease both;
 }
+.hero-bio b { color: var(--text); font-weight: 700; }
 
 .hero-actions {
   display: flex; gap: 1rem; flex-wrap: wrap;
@@ -243,6 +246,30 @@ nav {
 }
 .strip-link:hover { color: var(--accent); box-shadow: var(--n-in-sm); }
 
+/* METRICS BAND */
+.metrics-band {
+  max-width: 1280px; margin: 0 auto;
+  padding: 1rem 4rem 3rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem;
+}
+.metric-card {
+  background: var(--bg); box-shadow: var(--n-out);
+  border-radius: var(--r-sm); padding: 1.6rem 1.4rem;
+  text-align: center; transition: all 0.3s;
+}
+.metric-card:hover { transform: translateY(-4px); box-shadow: 12px 12px 24px #b8c4d4, -12px -12px 24px #ffffff; }
+.metric-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; font-weight: 900; line-height: 1;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 0.4rem;
+}
+.metric-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--text3);
+}
+
 /* SECTIONS */
 .sect {
   max-width: 1280px; margin: 0 auto;
@@ -260,36 +287,109 @@ nav {
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 900; color: var(--text); line-height: 1.1;
 }
+.sect-sub { font-size: 0.95rem; color: var(--text2); margin-top: 0.8rem; max-width: 600px; line-height: 1.7; }
+
+/* ===== LIVE DASHBOARD ===== */
+.dash {
+  background: var(--bg); box-shadow: var(--n-out);
+  border-radius: var(--r); padding: 1.8rem;
+  position: relative; overflow: hidden;
+}
+.dash::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(155,170,207,0.06) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(155,170,207,0.06) 1px, transparent 1px);
+  background-size: 26px 26px; pointer-events: none;
+}
+.dash-head {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.6rem;
+  position: relative; z-index: 1;
+}
+.dash-title { display: flex; align-items: center; gap: 0.7rem; }
+.dash-title h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+.dash-title .di {
+  width: 36px; height: 36px; border-radius: 10px;
+  box-shadow: var(--n-out-xs); display: flex; align-items: center; justify-content: center; font-size: 1rem;
+}
+.dash-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+.dash-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; font-weight: 500; color: var(--text2);
+  background: var(--bg); box-shadow: var(--n-in-sm);
+  padding: 0.32rem 0.7rem; border-radius: 7px;
+}
+.live-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.68rem; font-weight: 700; color: var(--green);
+  background: var(--bg); box-shadow: var(--n-out-xs);
+  padding: 0.32rem 0.7rem; border-radius: 7px; letter-spacing: 0.5px;
+}
+
+.kpi-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  margin-bottom: 1.3rem; position: relative; z-index: 1;
+}
+.kpi-tile {
+  background: var(--bg); box-shadow: var(--n-in-sm);
+  border-radius: var(--r-sm); padding: 1rem 1.1rem;
+}
+.kpi-label { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text3); margin-bottom: 0.45rem; }
+.kpi-val { font-size: 1.5rem; font-weight: 800; color: var(--text); line-height: 1; font-family: 'Syne', sans-serif; }
+.kpi-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 0.6rem; }
+.kpi-delta { font-size: 0.72rem; font-weight: 700; }
+.kpi-delta.up { color: var(--green); }
+.kpi-delta.down { color: var(--rose); }
+.kpi-spark { width: 56px; height: 20px; }
+
+.dash-grid {
+  display: grid; grid-template-columns: 1.55fr 1fr; gap: 1rem;
+  position: relative; z-index: 1;
+}
+.panel {
+  background: var(--bg); box-shadow: var(--n-in-sm);
+  border-radius: var(--r-sm); padding: 1.1rem 1.2rem;
+}
+.panel-title { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.4px; color: var(--text2); margin-bottom: 0.2rem; }
+.panel-meta { font-size: 0.66rem; color: var(--text3); margin-bottom: 0.8rem; }
+.dash-lower { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; position: relative; z-index: 1; }
+.chart-svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* chart animations (triggered when ancestor gets .vis) */
+.spark-line { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.7s ease 0.15s; }
+.vis .spark-line { stroke-dashoffset: 0; }
+.area-fill { opacity: 0; transition: opacity 1s ease 0.55s; }
+.vis .area-fill { opacity: 1; }
+.gdot { opacity: 0; transition: opacity 0.45s ease; }
+.vis .gdot { opacity: 1; }
+.gbar { transform: scaleY(0); transform-box: fill-box; transform-origin: bottom; transition: transform 0.95s cubic-bezier(0.34,1.45,0.5,1); }
+.vis .gbar { transform: scaleY(1); }
+.donut-seg { stroke-dashoffset: var(--seg); transition: stroke-dashoffset 1.25s cubic-bezier(0.4,1.2,0.5,1); }
+.vis .donut-seg { stroke-dashoffset: 0; }
+
+.legend { display: flex; flex-direction: column; gap: 0.55rem; margin-top: 0.6rem; }
+.legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--text2); font-weight: 600; }
+.legend-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
+.legend-val { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text3); }
 
 /* EXPERIENCE */
 .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
-
 .exp-card {
-  background: var(--bg);
-  box-shadow: var(--n-out);
-  border-radius: var(--r);
-  padding: 2rem 2.2rem;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s;
+  background: var(--bg); box-shadow: var(--n-out);
+  border-radius: var(--r); padding: 2rem 2.2rem;
+  position: relative; overflow: hidden; transition: all 0.3s;
 }
 .exp-card::after {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 4px; border-radius: var(--r) 0 0 var(--r);
-  transition: opacity 0.3s;
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; border-radius: var(--r) 0 0 var(--r); transition: opacity 0.3s;
 }
 .exp-card.c-blue::after { background: linear-gradient(180deg, var(--accent), var(--accent2)); }
 .exp-card.c-green::after { background: linear-gradient(180deg, var(--green), #059669); }
 .exp-card.c-rose::after { background: linear-gradient(180deg, var(--rose), var(--accent2)); }
 .exp-card.c-amber::after { background: linear-gradient(180deg, var(--amber), #d97706); }
-
 .exp-card:hover { transform: translateX(4px); box-shadow: 12px 12px 24px #b8c4d4, -12px -12px 24px #ffffff; }
 
-.exp-top {
-  display: flex; justify-content: space-between; align-items: flex-start;
-  margin-bottom: 0.2rem; flex-wrap: wrap; gap: 0.5rem;
-}
+.exp-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.2rem; flex-wrap: wrap; gap: 0.5rem; }
 .exp-title { font-size: 1.05rem; font-weight: 700; color: var(--text); }
 .exp-period {
   font-family: 'JetBrains Mono', monospace;
@@ -298,58 +398,27 @@ nav {
   padding: 0.25rem 0.7rem; border-radius: 6px;
 }
 .exp-company { font-size: 0.85rem; font-weight: 600; color: var(--accent); margin-bottom: 0.6rem; }
-.exp-type {
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--text3); margin-bottom: 1rem;
-}
-
+.exp-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); margin-bottom: 1rem; }
 .exp-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
 .etag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.68rem; font-weight: 500; color: var(--text2);
   background: var(--bg); box-shadow: var(--n-in-sm);
-  padding: 0.2rem 0.6rem; border-radius: 6px;
-  transition: all 0.2s;
+  padding: 0.2rem 0.6rem; border-radius: 6px; transition: all 0.2s;
 }
 .etag:hover { color: var(--accent); box-shadow: var(--n-out-xs); }
-
 .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
-.exp-bullets li {
-  font-size: 0.88rem; line-height: 1.6; color: var(--text2);
-  padding-left: 1.1rem; position: relative;
-}
-.exp-bullets li::before {
-  content: '→';
-  position: absolute; left: 0;
-  color: var(--accent); font-size: 0.75rem; top: 2px;
-}
+.exp-bullets li { font-size: 0.88rem; line-height: 1.6; color: var(--text2); padding-left: 1.1rem; position: relative; }
+.exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 2px; }
+.exp-bullets li b { color: var(--text); font-weight: 700; }
 
 /* SKILLS */
-.skills-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.skill-group {
-  background: var(--bg); box-shadow: var(--n-out);
-  border-radius: var(--r); padding: 1.8rem 2rem;
-  transition: all 0.3s;
-}
+.skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.skill-group { background: var(--bg); box-shadow: var(--n-out); border-radius: var(--r); padding: 1.8rem 2rem; transition: all 0.3s; }
 .skill-group:hover { transform: translateY(-3px); box-shadow: 12px 12px 24px #b8c4d4, -12px -12px 24px #ffffff; }
-
-.sg-header {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 1.2rem;
-}
-.sg-icon {
-  width: 40px; height: 40px; border-radius: 12px;
-  box-shadow: var(--n-out-xs);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem;
-}
+.sg-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; }
+.sg-icon { width: 40px; height: 40px; border-radius: 12px; box-shadow: var(--n-out-xs); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; }
 .sg-title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
-
 .skill-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip {
   font-family: 'JetBrains Mono', monospace;
@@ -362,157 +431,88 @@ nav {
 
 /* SKILL BARS */
 .bar-list { display: flex; flex-direction: column; gap: 1rem; }
-.bar-item { }
-.bar-meta {
-  display: flex; justify-content: space-between;
-  font-size: 0.78rem; font-weight: 600; color: var(--text2);
-  margin-bottom: 0.4rem;
-}
-.bar-track {
-  height: 9px; border-radius: 50px;
-  background: var(--bg); box-shadow: var(--n-in-sm); overflow: hidden;
-}
-.bar-fill {
-  height: 100%; border-radius: 50px;
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 1.1s cubic-bezier(0.34,1.56,0.64,1);
-}
+.bar-meta { display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 600; color: var(--text2); margin-bottom: 0.4rem; }
+.bar-track { height: 9px; border-radius: 50px; background: var(--bg); box-shadow: var(--n-in-sm); overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 50px; transform: scaleX(0); transform-origin: left; transition: transform 1.1s cubic-bezier(0.34,1.56,0.64,1); }
 .bar-fill.go { transform: scaleX(1); }
 .bf-blue { background: linear-gradient(90deg, var(--accent), var(--accent2)); box-shadow: 2px 0 10px rgba(79,110,247,0.4); }
 .bf-green { background: linear-gradient(90deg, var(--green), #059669); box-shadow: 2px 0 10px rgba(46,184,154,0.4); }
 
-/* PROJECTS */
-.proj-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.8rem;
+/* PROCESS */
+.flow {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;
+  position: relative;
 }
+.flow-step {
+  background: var(--bg); box-shadow: var(--n-out);
+  border-radius: var(--r-sm); padding: 1.5rem 1.1rem; text-align: center;
+  transition: all 0.3s; position: relative;
+}
+.flow-step:hover { transform: translateY(-5px); box-shadow: 12px 12px 24px #b8c4d4, -12px -12px 24px #ffffff; }
+.flow-num { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: var(--text3); margin-bottom: 0.6rem; }
+.flow-icon { width: 46px; height: 46px; border-radius: 14px; box-shadow: var(--n-in-sm); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 0.8rem; }
+.flow-name { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+.flow-desc { font-size: 0.74rem; line-height: 1.5; color: var(--text3); }
 
+/* PROJECTS */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem; }
 .proj-card {
   background: var(--bg); box-shadow: var(--n-out);
   border-radius: var(--r); padding: 1.8rem 2rem;
-  position: relative; overflow: hidden;
-  transition: all 0.3s;
+  position: relative; overflow: hidden; transition: all 0.3s;
 }
 .proj-card:hover { transform: translateY(-5px); box-shadow: 14px 14px 28px #b8c4d4, -14px -14px 28px #ffffff; }
-
-.proj-accent-line {
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px; border-radius: var(--r) var(--r) 0 0;
-  opacity: 0; transition: opacity 0.3s;
-}
+.proj-accent-line { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: var(--r) var(--r) 0 0; opacity: 0; transition: opacity 0.3s; }
 .proj-card:hover .proj-accent-line { opacity: 1; }
 .pal-blue { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
 .pal-green { background: linear-gradient(90deg, var(--green), #059669); }
 .pal-rose { background: linear-gradient(90deg, var(--rose), var(--accent2)); }
 .pal-amber { background: linear-gradient(90deg, var(--amber), #f97316); }
-.pal-teal { background: linear-gradient(90deg, #0d9488, #06b6d4); }
+.pal-teal { background: linear-gradient(90deg, var(--cyan), #06b6d4); }
 .pal-purple { background: linear-gradient(90deg, var(--accent2), #9333ea); }
 
 .proj-links { display: flex; gap: 0.6rem; margin-top: 0.8rem; }
-.proj-link {
-  font-size: 0.75rem; font-weight: 700; color: var(--text2);
-  text-decoration: none; padding: 0.3rem 0.9rem;
-  background: var(--bg); box-shadow: var(--n-out-xs);
-  border-radius: 50px; transition: all 0.2s;
-}
+.proj-link { font-size: 0.75rem; font-weight: 700; color: var(--text2); text-decoration: none; padding: 0.3rem 0.9rem; background: var(--bg); box-shadow: var(--n-out-xs); border-radius: 50px; transition: all 0.2s; }
 .proj-link:hover { box-shadow: var(--n-in-sm); color: var(--accent); }
-
-.proj-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem; font-weight: 500; color: var(--text3);
-  background: var(--bg); box-shadow: var(--n-in-sm);
-  padding: 0.2rem 0.6rem; border-radius: 5px;
-  display: inline-block; margin-bottom: 1rem;
-}
-.proj-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem; font-weight: 700;
-  color: var(--text); margin-bottom: 0.6rem; line-height: 1.2;
-}
-.proj-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text2); margin-bottom: 1.2rem; }
-.proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+.proj-num { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; color: var(--text3); background: var(--bg); box-shadow: var(--n-in-sm); padding: 0.2rem 0.6rem; border-radius: 5px; display: inline-block; margin-bottom: 1rem; }
+.proj-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; line-height: 1.2; }
+.proj-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text2); margin-bottom: 1rem; }
+.proj-metrics { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1rem; padding: 0.7rem 0; border-top: 1px solid rgba(155,170,207,0.25); border-bottom: 1px solid rgba(155,170,207,0.25); }
+.pm { display: flex; flex-direction: column; }
+.pm-val { font-size: 1rem; font-weight: 800; color: var(--accent); line-height: 1; }
+.pm-lbl { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text3); margin-top: 0.2rem; }
+.proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.4rem; }
 
 /* CONTACT */
-.contact-layout {
-  display: grid; grid-template-columns: 1.1fr 1fr;
-  gap: 2.5rem; align-items: start;
-}
-
+.contact-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; align-items: start; }
 .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-
-.clink {
-  display: flex; align-items: center; gap: 1rem;
-  background: var(--bg); box-shadow: var(--n-out);
-  border-radius: var(--r-sm); padding: 1.2rem 1.5rem;
-  text-decoration: none; color: inherit;
-  transition: all 0.25s;
-}
+.clink { display: flex; align-items: center; gap: 1rem; background: var(--bg); box-shadow: var(--n-out); border-radius: var(--r-sm); padding: 1.2rem 1.5rem; text-decoration: none; color: inherit; transition: all 0.25s; }
 .clink:hover { box-shadow: var(--n-in); transform: scale(0.99); }
-
-.cl-icon {
-  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
-  box-shadow: var(--n-out-xs);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
-}
+.cl-icon { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; box-shadow: var(--n-out-xs); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
 .cl-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); }
 .cl-val { font-size: 0.9rem; font-weight: 600; color: var(--text); }
-
-.contact-form-box {
-  background: var(--bg); box-shadow: var(--n-out);
-  border-radius: var(--r); padding: 2rem;
-}
+.contact-form-box { background: var(--bg); box-shadow: var(--n-out); border-radius: var(--r); padding: 2rem; }
 .cf-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 1.4rem; }
-
 .fg { margin-bottom: 1rem; }
 .fg label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--text3); margin-bottom: 0.4rem; letter-spacing: 0.3px; }
-.fi, .ft {
-  width: 100%; padding: 0.8rem 1rem;
-  background: var(--bg); border: none; outline: none;
-  border-radius: var(--r-xs); box-shadow: var(--n-in-sm);
-  font-family: 'Syne', sans-serif; font-size: 0.88rem;
-  color: var(--text); resize: none;
-  transition: all 0.2s;
-}
+.fi, .ft { width: 100%; padding: 0.8rem 1rem; background: var(--bg); border: none; outline: none; border-radius: var(--r-xs); box-shadow: var(--n-in-sm); font-family: 'Syne', sans-serif; font-size: 0.88rem; color: var(--text); resize: none; transition: all 0.2s; }
 .fi::placeholder, .ft::placeholder { color: var(--text3); }
 .fi:focus, .ft:focus { box-shadow: var(--n-in), 0 0 0 2px rgba(79,110,247,0.18); }
 .ft { height: 110px; }
-
-.submit-btn {
-  width: 100%; padding: 0.9rem; border: none; border-radius: 50px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #fff; font-family: 'Syne', sans-serif;
-  font-size: 0.9rem; font-weight: 800; cursor: pointer;
-  box-shadow: 5px 5px 14px rgba(79,110,247,0.33), -2px -2px 8px rgba(255,255,255,0.8);
-  transition: all 0.3s; letter-spacing: 0.3px;
-}
+.submit-btn { width: 100%; padding: 0.9rem; border: none; border-radius: 50px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 800; cursor: pointer; box-shadow: 5px 5px 14px rgba(79,110,247,0.33), -2px -2px 8px rgba(255,255,255,0.8); transition: all 0.3s; letter-spacing: 0.3px; }
 .submit-btn:hover { transform: translateY(-2px); box-shadow: 7px 9px 20px rgba(79,110,247,0.42); }
 .submit-btn:active { transform: translateY(0); box-shadow: var(--n-in); }
 
 /* DIVIDER */
-.divider {
-  height: 1px; margin: 0 4rem;
-  background: linear-gradient(90deg, transparent, #b8c4d4 40%, #b8c4d4 60%, transparent);
-  opacity: 0.55;
-}
+.divider { height: 1px; margin: 0 4rem; background: linear-gradient(90deg, transparent, #b8c4d4 40%, #b8c4d4 60%, transparent); opacity: 0.55; }
 
 /* FOOTER */
-footer {
-  text-align: center; padding: 2.5rem 2rem;
-  font-size: 0.8rem; color: var(--text3); font-weight: 500;
-}
+footer { text-align: center; padding: 2.5rem 2rem; font-size: 0.8rem; color: var(--text3); font-weight: 500; }
 footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 
 /* ANIMS */
-@keyframes fup {
-  from { opacity: 0; transform: translateY(22px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.fu {
-  opacity: 0; transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.34,1.2,0.64,1);
-}
+@keyframes fup { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.fu { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.34,1.2,0.64,1); }
 .fu.vis { opacity: 1; transform: translateY(0); }
 .fu.d1 { transition-delay: 0.06s; }
 .fu.d2 { transition-delay: 0.13s; }
@@ -524,18 +524,29 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
 ::-webkit-scrollbar-thumb { background: linear-gradient(var(--accent), var(--accent2)); border-radius: 3px; }
 
+@media (max-width: 1000px) {
+  .metrics-band { grid-template-columns: repeat(2, 1fr); }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .dash-grid { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 900px) {
-  #hero { grid-template-columns: 1fr; text-align: center; padding: 8rem 2rem 4rem; }
+  #hero { grid-template-columns: 1fr; text-align: center; padding: 8rem 2rem 3rem; }
   .hero-right { order: -1; }
   .hero-bio { margin: 0 auto 2rem; }
   .hero-actions { justify-content: center; }
   .hero-eyebrow { justify-content: center; }
   .skills-layout { grid-template-columns: 1fr; }
   .contact-layout { grid-template-columns: 1fr; }
+  .dash-lower { grid-template-columns: 1fr; }
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .sect { padding: 4rem 1.5rem; }
+  .metrics-band { padding: 1rem 1.5rem 2rem; }
   .divider { margin: 0 1.5rem; }
+}
+@media (max-width: 560px) {
+  .metrics-band, .kpi-row, .flow { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -548,6 +559,7 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 <nav>
   <div class="logo"><div class="logo-dot"></div>Manas</div>
   <div class="nav-links">
+    <a href="#analytics">Analytics</a>
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
@@ -561,7 +573,7 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
   <div class="hero-left">
     <div class="hero-eyebrow">
       <div class="eyebrow-line"></div>
-      <span class="eyebrow-text">Full-Stack Developer</span>
+      <span class="eyebrow-text">Data Analyst · Data Scientist</span>
     </div>
 
     <h1 class="hero-name">
@@ -570,14 +582,14 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
       Manas
     </h1>
 
-    <p class="hero-role">BS Applied Physics · <strong>University of Santo Tomas</strong></p>
+    <p class="hero-role">MS Applied Physics — Medical Physics · <strong>University of Santo Tomas</strong></p>
 
     <p class="hero-bio">
-      Full-stack developer with a physicist's precision — experienced in Laravel and React/TypeScript applications. I build reliable, business-critical product features across frontend, backend, and integrations, with a focus on subscription flows, admin systems, and API-driven development.
+      Data analyst &amp; scientist with a <b>medical physicist's rigor</b> and an engineer's toolkit. I pair graduate-level quantitative training — statistics, numerical modeling, and Monte&nbsp;Carlo simulation — with hands-on <b>Python, SQL, and BI</b> (Power BI, Tableau) to turn complex, high-volume data into clear, decision-ready insight.
     </p>
 
     <div class="hero-actions">
-      <a href="#projects" class="btn-p">View My Work ↓</a>
+      <a href="#analytics" class="btn-p">See Live Dashboard ↓</a>
       <a href="#contact" class="btn-s">Get In Touch</a>
     </div>
   </div>
@@ -596,11 +608,11 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
     </div>
 
     <div class="hero-pills">
-      <span class="hero-pill">Laravel</span>
-      <span class="hero-pill">React</span>
-      <span class="hero-pill">TypeScript</span>
-      <span class="hero-pill">PHP</span>
-      <span class="hero-pill">MySQL</span>
+      <span class="hero-pill">Python</span>
+      <span class="hero-pill">SQL</span>
+      <span class="hero-pill">Power BI</span>
+      <span class="hero-pill">Tableau</span>
+      <span class="hero-pill">MATLAB</span>
     </div>
 
     <div class="contact-strip">
@@ -608,6 +620,220 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
       <a class="strip-link" href="tel:09605118496">📱 0960 511 8496</a>
       <a class="strip-link" href="#">💼 LinkedIn</a>
       <a class="strip-link" href="#">📍 Manila / Cavite</a>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS BAND -->
+<div class="metrics-band">
+  <div class="metric-card fu d1">
+    <div class="metric-num" data-count="1" data-suffix="M+">0</div>
+    <div class="metric-label">Monte Carlo Histories</div>
+  </div>
+  <div class="metric-card fu d2">
+    <div class="metric-num" data-count="5" data-suffix="+">0</div>
+    <div class="metric-label">Imaging Modalities QA'd</div>
+  </div>
+  <div class="metric-card fu d3">
+    <div class="metric-num" data-count="3" data-suffix="">0</div>
+    <div class="metric-label">Research Presentations</div>
+  </div>
+  <div class="metric-card fu d4">
+    <div class="metric-num" data-count="5" data-suffix=" yrs">0</div>
+    <div class="metric-label">Quantitative Training</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ANALYTICS / LIVE DASHBOARD -->
+<section id="analytics" class="sect">
+  <div class="sect-head fu">
+    <div class="sect-kicker"><div class="kicker-line"></div>Analytics in Action</div>
+    <h2 class="sect-title">A Dashboard, Hand-Built</h2>
+    <p class="sect-sub">No screenshots — every chart below is rendered live in the browser from sample data, the same way I build reporting for real products. Scroll to watch it animate.</p>
+  </div>
+
+  <div class="dash fu d1">
+    <div class="dash-head">
+      <div class="dash-title">
+        <div class="di">📊</div>
+        <h3>Revenue & Growth Overview</h3>
+      </div>
+      <div class="dash-controls">
+        <span class="dash-pill">Last 12 months ▾</span>
+        <span class="dash-pill">All channels ▾</span>
+        <span class="live-badge"><span class="badge-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- KPI TILES -->
+    <div class="kpi-row">
+      <div class="kpi-tile">
+        <div class="kpi-label">Revenue</div>
+        <div class="kpi-val" data-count="1.24" data-dec="2" data-prefix="$" data-suffix="M">$0</div>
+        <div class="kpi-foot">
+          <span class="kpi-delta up">▲ 12.4%</span>
+          <svg class="kpi-spark" viewBox="0 0 56 20" preserveAspectRatio="none">
+            <path class="spark-line" pathLength="1" d="M0,16 L9,14 L18,15 L27,10 L36,11 L45,5 L56,3" fill="none" stroke="#2eb89a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Active Users</div>
+        <div class="kpi-val" data-count="84.2" data-dec="1" data-suffix="K">0</div>
+        <div class="kpi-foot">
+          <span class="kpi-delta up">▲ 8.1%</span>
+          <svg class="kpi-spark" viewBox="0 0 56 20" preserveAspectRatio="none">
+            <path class="spark-line" pathLength="1" d="M0,15 L9,12 L18,13 L27,9 L36,7 L45,8 L56,4" fill="none" stroke="#4f6ef7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Conversion</div>
+        <div class="kpi-val" data-count="4.7" data-dec="1" data-suffix="%">0%</div>
+        <div class="kpi-foot">
+          <span class="kpi-delta up">▲ 0.6pt</span>
+          <svg class="kpi-spark" viewBox="0 0 56 20" preserveAspectRatio="none">
+            <path class="spark-line" pathLength="1" d="M0,12 L9,13 L18,9 L27,11 L36,8 L45,6 L56,7" fill="none" stroke="#7c5cbf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Avg. Order</div>
+        <div class="kpi-val" data-count="128" data-prefix="$">$0</div>
+        <div class="kpi-foot">
+          <span class="kpi-delta down">▼ 2.3%</span>
+          <svg class="kpi-spark" viewBox="0 0 56 20" preserveAspectRatio="none">
+            <path class="spark-line" pathLength="1" d="M0,6 L9,8 L18,7 L27,10 L36,9 L45,13 L56,14" fill="none" stroke="#e05c8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN GRID: line chart + donut -->
+    <div class="dash-grid">
+      <div class="panel">
+        <div class="panel-title">Monthly Revenue Trend</div>
+        <div class="panel-meta">Net revenue, USD · Jan – Dec</div>
+        <svg class="chart-svg" viewBox="0 0 560 250" role="img" aria-label="Monthly revenue line chart trending upward">
+          <defs>
+            <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#4f6ef7" stop-opacity="0.32"/>
+              <stop offset="100%" stop-color="#4f6ef7" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#4f6ef7"/>
+              <stop offset="100%" stop-color="#7c5cbf"/>
+            </linearGradient>
+          </defs>
+          <!-- gridlines -->
+          <line x1="40" y1="70"  x2="540" y2="70"  stroke="#b8c4d4" stroke-opacity="0.4" stroke-width="1"/>
+          <line x1="40" y1="120" x2="540" y2="120" stroke="#b8c4d4" stroke-opacity="0.4" stroke-width="1"/>
+          <line x1="40" y1="170" x2="540" y2="170" stroke="#b8c4d4" stroke-opacity="0.4" stroke-width="1"/>
+          <line x1="40" y1="220" x2="540" y2="220" stroke="#b8c4d4" stroke-opacity="0.6" stroke-width="1"/>
+          <!-- y labels -->
+          <text x="30" y="74"  text-anchor="end" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">$1.2M</text>
+          <text x="30" y="124" text-anchor="end" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">$800k</text>
+          <text x="30" y="174" text-anchor="end" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">$400k</text>
+          <text x="30" y="224" text-anchor="end" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">$0</text>
+          <!-- area -->
+          <path class="area-fill" fill="url(#areaGrad)"
+            d="M40,159.2 L85.5,147.8 L130.9,163 L176.4,134.5 L221.8,121.2 L267.3,128.8 L312.7,106 L358.2,94.6 L403.6,109.8 L449.1,83.2 L494.5,68 L540,52.8 L540,220 L40,220 Z"/>
+          <!-- line -->
+          <path class="spark-line" pathLength="1" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+            d="M40,159.2 L85.5,147.8 L130.9,163 L176.4,134.5 L221.8,121.2 L267.3,128.8 L312.7,106 L358.2,94.6 L403.6,109.8 L449.1,83.2 L494.5,68 L540,52.8"/>
+          <!-- dots -->
+          <circle class="gdot" cx="40"    cy="159.2" r="3.5" fill="#4f6ef7" style="transition-delay:0.7s"/>
+          <circle class="gdot" cx="130.9" cy="163"   r="3.5" fill="#4f6ef7" style="transition-delay:0.85s"/>
+          <circle class="gdot" cx="221.8" cy="121.2" r="3.5" fill="#4f6ef7" style="transition-delay:1s"/>
+          <circle class="gdot" cx="312.7" cy="106"   r="3.5" fill="#4f6ef7" style="transition-delay:1.15s"/>
+          <circle class="gdot" cx="403.6" cy="109.8" r="3.5" fill="#4f6ef7" style="transition-delay:1.3s"/>
+          <circle class="gdot" cx="540"   cy="52.8"  r="4.5" fill="#7c5cbf" style="transition-delay:1.45s"/>
+          <!-- x labels -->
+          <text x="40"    y="240" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Jan</text>
+          <text x="176.4" y="240" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Apr</text>
+          <text x="312.7" y="240" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Jul</text>
+          <text x="449.1" y="240" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Oct</text>
+          <text x="540"   y="240" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Dec</text>
+        </svg>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Traffic by Source</div>
+        <div class="panel-meta">Share of sessions</div>
+        <svg class="chart-svg" viewBox="0 0 180 180" style="max-width:200px;margin:0 auto;display:block" role="img" aria-label="Donut chart of traffic sources">
+          <circle cx="90" cy="90" r="70" fill="none" stroke="#dfe5ee" stroke-width="22"/>
+          <circle class="donut-seg" cx="90" cy="90" r="70" fill="none" stroke="#4f6ef7" stroke-width="22"
+            stroke-dasharray="180 259.8" transform="rotate(-90 90 90)" style="--seg:180;transition-delay:0.1s"/>
+          <circle class="donut-seg" cx="90" cy="90" r="70" fill="none" stroke="#7c5cbf" stroke-width="22"
+            stroke-dasharray="109 330.8" transform="rotate(61.2 90 90)" style="--seg:109;transition-delay:0.25s"/>
+          <circle class="donut-seg" cx="90" cy="90" r="70" fill="none" stroke="#2eb89a" stroke-width="22"
+            stroke-dasharray="83 356.8" transform="rotate(154.8 90 90)" style="--seg:83;transition-delay:0.4s"/>
+          <circle class="donut-seg" cx="90" cy="90" r="70" fill="none" stroke="#d97706" stroke-width="22"
+            stroke-dasharray="48 391.8" transform="rotate(226.8 90 90)" style="--seg:48;transition-delay:0.55s"/>
+          <text x="90" y="84" text-anchor="middle" font-size="22" font-weight="800" fill="#1e2535" font-family="Syne">84.2K</text>
+          <text x="90" y="102" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono" letter-spacing="1">SESSIONS</text>
+        </svg>
+        <div class="legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#4f6ef7"></span>Organic Search<span class="legend-val">42%</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#7c5cbf"></span>Paid / Ads<span class="legend-val">26%</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#2eb89a"></span>Direct<span class="legend-val">20%</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#d97706"></span>Referral<span class="legend-val">12%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOWER: bar chart + retention -->
+    <div class="dash-lower">
+      <div class="panel">
+        <div class="panel-title">Conversions by Channel</div>
+        <div class="panel-meta">Completed orders, this quarter</div>
+        <svg class="chart-svg" viewBox="0 0 300 215" role="img" aria-label="Bar chart of conversions by channel">
+          <defs>
+            <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5a78f8"/>
+              <stop offset="100%" stop-color="#7c5cbf"/>
+            </linearGradient>
+          </defs>
+          <line x1="14" y1="185" x2="290" y2="185" stroke="#b8c4d4" stroke-opacity="0.6" stroke-width="1"/>
+          <rect class="gbar" x="18"  y="70.2"  width="26" height="114.8" rx="5" fill="url(#barGrad)" style="transition-delay:0.05s"/>
+          <rect class="gbar" x="64"  y="89.8"  width="26" height="95.2"  rx="5" fill="url(#barGrad)" style="transition-delay:0.13s"/>
+          <rect class="gbar" x="110" y="108"   width="26" height="77"    rx="5" fill="url(#barGrad)" style="transition-delay:0.21s"/>
+          <rect class="gbar" x="156" y="119.2" width="26" height="65.8"  rx="5" fill="url(#barGrad)" style="transition-delay:0.29s"/>
+          <rect class="gbar" x="202" y="129"   width="26" height="56"    rx="5" fill="url(#barGrad)" style="transition-delay:0.37s"/>
+          <rect class="gbar" x="248" y="140.2" width="26" height="44.8"  rx="5" fill="url(#barGrad)" style="transition-delay:0.45s"/>
+          <text x="31"  y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Org</text>
+          <text x="77"  y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Paid</text>
+          <text x="123" y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Email</text>
+          <text x="169" y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Soc</text>
+          <text x="215" y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Ref</text>
+          <text x="261" y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">Dir</text>
+        </svg>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Cohort Retention</div>
+        <div class="panel-meta">% retained by week since signup</div>
+        <svg class="chart-svg" viewBox="0 0 300 215" role="img" aria-label="Retention curve">
+          <defs>
+            <linearGradient id="retGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2eb89a" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#2eb89a" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="14" y1="50"  x2="290" y2="50"  stroke="#b8c4d4" stroke-opacity="0.35" stroke-width="1"/>
+          <line x1="14" y1="120" x2="290" y2="120" stroke="#b8c4d4" stroke-opacity="0.35" stroke-width="1"/>
+          <line x1="14" y1="185" x2="290" y2="185" stroke="#b8c4d4" stroke-opacity="0.6" stroke-width="1"/>
+          <path class="area-fill" fill="url(#retGrad)"
+            d="M14,20 L60,52 L106,78 L152,98 L198,112 L244,120 L290,124 L290,185 L14,185 Z" style="transition-delay:0.45s"/>
+          <path class="spark-line" pathLength="1" fill="none" stroke="#2eb89a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+            d="M14,20 L60,52 L106,78 L152,98 L198,112 L244,120 L290,124"/>
+          <text x="14"  y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">W0</text>
+          <text x="106" y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">W2</text>
+          <text x="198" y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">W4</text>
+          <text x="290" y="200" text-anchor="middle" font-size="9" fill="#8a96a8" font-family="JetBrains Mono">W6</text>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
@@ -625,67 +851,67 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 
     <div class="exp-card c-blue fu d1">
       <div class="exp-top">
-        <div class="exp-title">Full-Stack Developer</div>
-        <div class="exp-period">June 2025 – Present</div>
+        <div class="exp-title">Junior Medical Physicist</div>
+        <div class="exp-period">Apr 2026 – Present</div>
       </div>
-      <div class="exp-company">Remote Freelance Work</div>
-      <div class="exp-type">Remote · Freelance</div>
+      <div class="exp-company">Medical Physics &amp; Health Physics Services (MPHPS)</div>
+      <div class="exp-type">Medical Physics · Imaging QA Data</div>
       <div class="exp-stack">
-        <span class="etag">Laravel</span><span class="etag">PHP</span><span class="etag">React</span><span class="etag">TypeScript</span><span class="etag">Tailwind CSS</span><span class="etag">REST APIs</span><span class="etag">MySQL</span><span class="etag">Vite</span>
+        <span class="etag">Python</span><span class="etag">Excel</span><span class="etag">Imaging QA</span><span class="etag">Statistics</span>
       </div>
       <ul class="exp-bullets">
-        <li>Built multi-step billing and subscription flows in a practice-management web application using React and TypeScript.</li>
-        <li>Implemented Laravel endpoints and validation for dynamic pricing, billing configuration, and add-on management.</li>
-        <li>Improved access control, redirect handling, shared API integrations, and backend test coverage for billing-related changes.</li>
-        <li>Supported accounting and operations workflows in invoices, client sync, and admin settings modules.</li>
+        <li>Capture and analyze <b>quantitative performance data</b> across imaging modalities — CT, radiography/fluoroscopy, mammography, PET/CT, and SPECT/CT — during routine QA testing.</li>
+        <li>Compare image-quality and radiation-output metrics against <b>regulatory tolerances</b> to verify equipment performance and flag deviations.</li>
+        <li>Work with repeated measurement datasets across machines and sites, applying statistical quality control.</li>
       </ul>
     </div>
 
     <div class="exp-card c-green fu d2">
       <div class="exp-top">
-        <div class="exp-title">Junior Backend Developer</div>
-        <div class="exp-period">Dec 2024 – May 2025</div>
+        <div class="exp-title">Data Analyst / Full-Stack Developer</div>
+        <div class="exp-period">June 2025 – Present</div>
       </div>
-      <div class="exp-company">Beth Aven</div>
-      <div class="exp-type">Backend · E-Commerce</div>
+      <div class="exp-company">Remote Freelance Work</div>
+      <div class="exp-type">Analytics · Reporting · Web</div>
       <div class="exp-stack">
-        <span class="etag">PHP</span><span class="etag">Laravel</span><span class="etag">MySQL</span><span class="etag">REST APIs</span><span class="etag">JavaScript</span><span class="etag">Git</span>
+        <span class="etag">SQL</span><span class="etag">Python</span><span class="etag">Power BI</span><span class="etag">Laravel</span><span class="etag">React</span><span class="etag">MySQL</span>
       </div>
       <ul class="exp-bullets">
-        <li>Contributed to an e-commerce website through backend feature development and supporting integrations.</li>
-        <li>Helped implement server-side functionality for smoother shopping and site management workflows.</li>
+        <li>Built <b>revenue, MRR, and churn reporting</b> for a subscription product — writing SQL across billing and subscription tables to surface the metrics finance and ops review weekly.</li>
+        <li>Designed <b>dashboards and KPI views</b> for pricing, add-on adoption, and billing configuration, replacing manual spreadsheet pulls with repeatable queries.</li>
+        <li>Owned <b>data validation and reconciliation</b> for invoices and client sync, catching mismatches before they reached accounting.</li>
       </ul>
     </div>
 
     <div class="exp-card c-rose fu d3">
       <div class="exp-top">
-        <div class="exp-title">Junior Developer</div>
-        <div class="exp-period">2025</div>
+        <div class="exp-title">Medical Physics Intern</div>
+        <div class="exp-period">May – June 2024</div>
       </div>
-      <div class="exp-company">HPL Game Design</div>
-      <div class="exp-type">Frontend · UI Development</div>
+      <div class="exp-company">UP – Philippine General Hospital (PGH)</div>
+      <div class="exp-type">Internship · Dose Data</div>
       <div class="exp-stack">
-        <span class="etag">HTML</span><span class="etag">CSS</span><span class="etag">JavaScript</span><span class="etag">React</span><span class="etag">Responsive UI</span>
+        <span class="etag">Excel</span><span class="etag">Dose Calculations</span><span class="etag">QA</span><span class="etag">Radiation Safety</span>
       </div>
       <ul class="exp-bullets">
-        <li>Developed user-facing interface components with focus on responsive layouts, usability, and visual consistency.</li>
-        <li>Translated design requirements into functional frontend features and iterative UI improvements.</li>
+        <li>Collected, encoded, and validated <b>patient dose data</b> and performed activity and dose calculations across radiology, nuclear medicine, and radiation oncology.</li>
+        <li>Conducted radiation surveys and compiled QA/compliance documentation across X-ray, CT, MRI, SPECT/CT, PET/CT, brachytherapy, and LINAC systems.</li>
       </ul>
     </div>
 
     <div class="exp-card c-amber fu d4">
       <div class="exp-top">
-        <div class="exp-title">Full-Stack Developer Intern</div>
-        <div class="exp-period">2023</div>
+        <div class="exp-title">Data & Backend Developer</div>
+        <div class="exp-period">Dec 2024 – May 2025</div>
       </div>
-      <div class="exp-company">NexVision</div>
-      <div class="exp-type">Internship · Full-Stack</div>
+      <div class="exp-company">Beth Aven</div>
+      <div class="exp-type">E-Commerce · Sales Analytics</div>
       <div class="exp-stack">
-        <span class="etag">HTML</span><span class="etag">CSS</span><span class="etag">JavaScript</span><span class="etag">PHP</span><span class="etag">SQL</span><span class="etag">REST APIs</span><span class="etag">Git</span>
+        <span class="etag">SQL</span><span class="etag">MySQL</span><span class="etag">PHP</span><span class="etag">Laravel</span><span class="etag">Excel</span>
       </div>
       <ul class="exp-bullets">
-        <li>Supported full-stack web development across frontend and backend tasks, including implementation, debugging, and feature updates.</li>
-        <li>Worked on UI improvements, API integration, and database-backed functionality in a team environment.</li>
+        <li>Wrote <b>SQL queries for sales, inventory, and order analytics</b>, giving the team visibility into product performance and stock movement.</li>
+        <li>Built <b>ETL-style data flows</b> from operational tables into clean, reporting-friendly views.</li>
       </ul>
     </div>
 
@@ -697,7 +923,7 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 <!-- SKILLS -->
 <section id="skills" class="sect">
   <div class="sect-head fu">
-    <div class="sect-kicker"><div class="kicker-line"></div>Technical Arsenal</div>
+    <div class="sect-kicker"><div class="kicker-line"></div>Analytics Toolkit</div>
     <h2 class="sect-title">Skills</h2>
   </div>
 
@@ -705,81 +931,76 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 
     <div class="skill-group fu d1">
       <div class="sg-header">
-        <div class="sg-icon">🎨</div>
-        <div class="sg-title">Frontend</div>
+        <div class="sg-icon">🧮</div>
+        <div class="sg-title">Programming & Analysis</div>
       </div>
       <div class="skill-chips">
-        <span class="chip">React</span>
-        <span class="chip">TypeScript</span>
-        <span class="chip">JavaScript</span>
-        <span class="chip">HTML</span>
-        <span class="chip">CSS</span>
-        <span class="chip">Tailwind CSS</span>
-        <span class="chip">ShadCN</span>
-        <span class="chip">TanStack Query</span>
-        <span class="chip">React Hook Form</span>
-        <span class="chip">Zod</span>
-        <span class="chip">Zustand</span>
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">MATLAB</span>
+        <span class="chip">pandas</span>
+        <span class="chip">NumPy</span>
+        <span class="chip">SciPy</span>
+        <span class="chip">scikit-learn</span>
+        <span class="chip">statsmodels</span>
       </div>
     </div>
 
     <div class="skill-group fu d2">
       <div class="sg-header">
-        <div class="sg-icon">⚙️</div>
-        <div class="sg-title">Backend</div>
+        <div class="sg-icon">🔬</div>
+        <div class="sg-title">Scientific & Data Eng</div>
       </div>
       <div class="skill-chips">
-        <span class="chip">PHP</span>
-        <span class="chip">Laravel</span>
+        <span class="chip">PHITS / Monte Carlo</span>
+        <span class="chip">Numerical Methods</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">MySQL</span>
         <span class="chip">REST APIs</span>
-        <span class="chip">Auth / Access Control</span>
-        <span class="chip">Validation</span>
-        <span class="chip">Testing</span>
-        <span class="chip">Node.js</span>
-        <span class="chip">Express.js</span>
-        <span class="chip">Python</span>
+        <span class="chip">Git</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Jupyter</span>
       </div>
     </div>
 
     <div class="skill-group fu d3">
       <div class="sg-header">
-        <div class="sg-icon">🗄️</div>
-        <div class="sg-title">Data & Tools</div>
+        <div class="sg-icon">📊</div>
+        <div class="sg-title">Visualization & BI</div>
       </div>
       <div class="skill-chips">
-        <span class="chip">MySQL</span>
-        <span class="chip">PostgreSQL</span>
-        <span class="chip">SQL</span>
-        <span class="chip">Git / GitHub</span>
-        <span class="chip">Docker</span>
-        <span class="chip">Vite</span>
-        <span class="chip">JWT</span>
-        <span class="chip">LaTeX</span>
-        <span class="chip">MATLAB</span>
+        <span class="chip">Power BI</span>
+        <span class="chip">Tableau</span>
+        <span class="chip">Looker Studio</span>
+        <span class="chip">Matplotlib</span>
+        <span class="chip">Seaborn</span>
+        <span class="chip">Excel / Pivot</span>
+        <span class="chip">Plotly</span>
+        <span class="chip">Dashboards</span>
       </div>
     </div>
 
     <div class="skill-group fu d4">
       <div class="sg-header">
-        <div class="sg-icon">📊</div>
+        <div class="sg-icon">📈</div>
         <div class="sg-title">Core Strengths</div>
       </div>
       <div class="bar-list">
         <div class="bar-item">
-          <div class="bar-meta"><span>SaaS Billing & Subscription Flows</span><span>92%</span></div>
+          <div class="bar-meta"><span>Statistical & Numerical Analysis</span><span>92%</span></div>
           <div class="bar-track"><div class="bar-fill bf-blue" style="width:92%"></div></div>
         </div>
         <div class="bar-item">
-          <div class="bar-meta"><span>API-Driven Product Development</span><span>88%</span></div>
-          <div class="bar-track"><div class="bar-fill bf-blue" style="width:88%"></div></div>
+          <div class="bar-meta"><span>Scientific Computing (Python)</span><span>90%</span></div>
+          <div class="bar-track"><div class="bar-fill bf-blue" style="width:90%"></div></div>
         </div>
         <div class="bar-item">
-          <div class="bar-meta"><span>Frontend UI & Responsive Design</span><span>85%</span></div>
+          <div class="bar-meta"><span>Data Visualization & Storytelling</span><span>88%</span></div>
+          <div class="bar-track"><div class="bar-fill bf-green" style="width:88%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-meta"><span>SQL & Data Modeling</span><span>85%</span></div>
           <div class="bar-track"><div class="bar-fill bf-green" style="width:85%"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-meta"><span>Validation, Testing & Quality</span><span>82%</span></div>
-          <div class="bar-track"><div class="bar-fill bf-green" style="width:82%"></div></div>
         </div>
       </div>
     </div>
@@ -789,107 +1010,168 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 
 <div class="divider"></div>
 
+<!-- PROCESS -->
+<section class="sect">
+  <div class="sect-head fu">
+    <div class="sect-kicker"><div class="kicker-line"></div>How I Work</div>
+    <h2 class="sect-title">From Raw Data to Decision</h2>
+    <p class="sect-sub">A repeatable analytics workflow — every project moves through the same five stages, from first query to the recommendation a stakeholder can act on.</p>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step fu d1">
+      <div class="flow-num">01</div>
+      <div class="flow-icon">🗃️</div>
+      <div class="flow-name">Collect</div>
+      <div class="flow-desc">Pull from SQL databases, APIs & flat files into one place.</div>
+    </div>
+    <div class="flow-step fu d2">
+      <div class="flow-num">02</div>
+      <div class="flow-icon">🧹</div>
+      <div class="flow-name">Clean</div>
+      <div class="flow-desc">Validate, dedupe & reshape with pandas — trustworthy inputs.</div>
+    </div>
+    <div class="flow-step fu d3">
+      <div class="flow-num">03</div>
+      <div class="flow-icon">📐</div>
+      <div class="flow-name">Analyze</div>
+      <div class="flow-desc">Explore, test hypotheses & model with a statistical lens.</div>
+    </div>
+    <div class="flow-step fu d4">
+      <div class="flow-num">04</div>
+      <div class="flow-icon">📊</div>
+      <div class="flow-name">Visualize</div>
+      <div class="flow-desc">Turn findings into clear dashboards in Power BI & Tableau.</div>
+    </div>
+    <div class="flow-step fu d4">
+      <div class="flow-num">05</div>
+      <div class="flow-icon">🎯</div>
+      <div class="flow-name">Decide</div>
+      <div class="flow-desc">Frame the insight & the recommendation that follows from it.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- PROJECTS -->
 <section id="projects" class="sect">
   <div class="sect-head fu">
     <div class="sect-kicker"><div class="kicker-line"></div>Portfolio</div>
-    <h2 class="sect-title">Featured Projects</h2>
+    <h2 class="sect-title">Featured Analyses</h2>
   </div>
 
   <div class="proj-grid">
 
     <div class="proj-card fu d1">
       <div class="proj-accent-line pal-blue"></div>
-      <div class="proj-num">01 / Practice Management</div>
-      <h3 class="proj-title">Billing & Subscription Platform</h3>
-      <p class="proj-desc">Multi-step billing flows, dynamic pricing configuration, and add-on management built for a practice-management web application. Includes full admin settings and invoicing modules.</p>
+      <div class="proj-num">01 / Scientific Computing</div>
+      <h3 class="proj-title">Bragg–Gray Cavity Integrals</h3>
+      <p class="proj-desc">Undergraduate thesis: numerical models for stopping-power ratios in radiation dosimetry — modeling the mass electronic stopping power as a Gaussian and evaluating cavity integrals by numerical integration.</p>
+      <div class="proj-metrics">
+        <div class="pm"><span class="pm-val">2025</span><span class="pm-lbl">Thesis</span></div>
+        <div class="pm"><span class="pm-val">100%</span><span class="pm-lbl">Reproducible</span></div>
+      </div>
       <div class="proj-tags">
-        <span class="chip">Laravel</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">MySQL</span><span class="chip">REST API</span>
+        <span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">MATLAB</span><span class="chip">LaTeX</span>
       </div>
     </div>
 
     <div class="proj-card fu d2">
-      <div class="proj-accent-line pal-green"></div>
-      <div class="proj-num">02 / E-Commerce</div>
-      <h3 class="proj-title">E-Commerce Backend System</h3>
-      <p class="proj-desc">Server-side functionality for shopping workflows and site management. Implemented backend features and API integrations to streamline operations for an online retail platform.</p>
+      <div class="proj-accent-line pal-purple"></div>
+      <div class="proj-num">02 / Monte Carlo</div>
+      <h3 class="proj-title">PHITS Stopping-Power Simulation</h3>
+      <p class="proj-desc">Monte Carlo radiation-transport simulations in PHITS to determine Bragg–Gray stopping-power ratios — analyzing large simulation outputs to extract physical quantities and validate the analytical model.</p>
+      <div class="proj-metrics">
+        <div class="pm"><span class="pm-val">1M+</span><span class="pm-lbl">Histories</span></div>
+        <div class="pm"><span class="pm-val">PHITS</span><span class="pm-lbl">Engine</span></div>
+      </div>
       <div class="proj-tags">
-        <span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">MySQL</span><span class="chip">REST APIs</span><span class="chip">JavaScript</span>
+        <span class="chip">PHITS</span><span class="chip">Python</span><span class="chip">Monte Carlo</span><span class="chip">Data Analysis</span>
       </div>
     </div>
 
     <div class="proj-card fu d3">
-      <div class="proj-accent-line pal-rose"></div>
-      <div class="proj-num">03 / Game Design Studio</div>
-      <h3 class="proj-title">Interactive UI Component Library</h3>
-      <p class="proj-desc">User-facing interface components emphasizing responsive layouts, usability, and visual consistency — translating design specifications into polished, production-ready React components.</p>
+      <div class="proj-accent-line pal-teal"></div>
+      <div class="proj-num">03 / Medical Imaging</div>
+      <h3 class="proj-title">Diagnostic Imaging QA Analytics</h3>
+      <p class="proj-desc">Quantitative analysis of imaging-system performance — image-quality and radiation-output metrics across CT, mammography, PET/CT and SPECT/CT — measured and checked against regulatory tolerances.</p>
+      <div class="proj-metrics">
+        <div class="pm"><span class="pm-val">5+</span><span class="pm-lbl">Modalities</span></div>
+        <div class="pm"><span class="pm-val">QC</span><span class="pm-lbl">vs. Tolerance</span></div>
+      </div>
       <div class="proj-tags">
-        <span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">Tailwind CSS</span><span class="chip">HTML</span><span class="chip">CSS</span>
+        <span class="chip">Python</span><span class="chip">Excel</span><span class="chip">Imaging QA</span><span class="chip">Statistics</span>
+      </div>
+    </div>
+
+    <div class="proj-card fu d1">
+      <div class="proj-accent-line pal-rose"></div>
+      <div class="proj-num">04 / Healthcare Data</div>
+      <h3 class="proj-title">Patient Dose Data Pipeline</h3>
+      <p class="proj-desc">Collected, encoded and validated patient dose data and computed activity/dose figures across radiology, nuclear medicine and radiation oncology during a hospital medical-physics internship.</p>
+      <div class="proj-metrics">
+        <div class="pm"><span class="pm-val">8+</span><span class="pm-lbl">Modalities</span></div>
+        <div class="pm"><span class="pm-val">UP-PGH</span><span class="pm-lbl">Clinical</span></div>
+      </div>
+      <div class="proj-tags">
+        <span class="chip">Excel</span><span class="chip">Dose Calc</span><span class="chip">QA</span><span class="chip">Data Validation</span>
+      </div>
+    </div>
+
+    <div class="proj-card fu d2">
+      <div class="proj-accent-line pal-blue"></div>
+      <div class="proj-num">05 / Business Intelligence</div>
+      <h3 class="proj-title">Revenue & Subscription Dashboard</h3>
+      <p class="proj-desc">End-to-end Power BI dashboard over a subscription product — MRR, churn, retention and ARPU fed by modeled SQL views. Replaced weekly manual spreadsheets with a single live report.</p>
+      <div class="proj-metrics">
+        <div class="pm"><span class="pm-val">12</span><span class="pm-lbl">KPIs Tracked</span></div>
+        <div class="pm"><span class="pm-val">-31%</span><span class="pm-lbl">Report Time</span></div>
+      </div>
+      <div class="proj-tags">
+        <span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">DAX</span><span class="chip">MySQL</span>
+      </div>
+    </div>
+
+    <div class="proj-card fu d3">
+      <div class="proj-accent-line pal-green"></div>
+      <div class="proj-num">06 / SQL Analytics</div>
+      <h3 class="proj-title">E-Commerce Sales Analytics</h3>
+      <p class="proj-desc">SQL analytics for sales, inventory and order performance on a live e-commerce platform, with ETL-style flows turning operational tables into clean, reporting-friendly views.</p>
+      <div class="proj-metrics">
+        <div class="pm"><span class="pm-val">SQL</span><span class="pm-lbl">+ ETL</span></div>
+        <div class="pm"><span class="pm-val">Live</span><span class="pm-lbl">Platform</span></div>
+      </div>
+      <div class="proj-tags">
+        <span class="chip">SQL</span><span class="chip">MySQL</span><span class="chip">PHP</span><span class="chip">Excel</span>
       </div>
     </div>
 
     <div class="proj-card fu d1">
       <div class="proj-accent-line pal-amber"></div>
-      <div class="proj-num">04 / SaaS</div>
-      <h3 class="proj-title">Multi-Tenant Admin Dashboard</h3>
-      <p class="proj-desc">Role-based admin panel with per-tenant configuration, user management, audit logs, and granular access control. Supports dynamic permission sets and real-time activity monitoring.</p>
-      <div class="proj-tags">
-        <span class="chip">Laravel</span><span class="chip">React</span><span class="chip">Zustand</span><span class="chip">JWT</span><span class="chip">PostgreSQL</span>
+      <div class="proj-num">07 / Automation</div>
+      <h3 class="proj-title">KPI Reporting Automation</h3>
+      <p class="proj-desc">A Python pipeline that queries the database, refreshes a formatted Excel/PDF report and distributes it on a schedule — turning a recurring manual chore into a hands-off deliverable.</p>
+      <div class="proj-metrics">
+        <div class="pm"><span class="pm-val">Weekly</span><span class="pm-lbl">Cadence</span></div>
+        <div class="pm"><span class="pm-val">0</span><span class="pm-lbl">Manual Steps</span></div>
       </div>
-      <div class="proj-links">
-        <a href="#" class="proj-link">GitHub ↗</a>
+      <div class="proj-tags">
+        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">pandas</span><span class="chip">openpyxl</span>
       </div>
     </div>
 
     <div class="proj-card fu d2">
-      <div class="proj-accent-line pal-teal"></div>
-      <div class="proj-num">05 / Developer Tool</div>
-      <h3 class="proj-title">REST API Scaffolding CLI</h3>
-      <p class="proj-desc">A command-line tool that generates boilerplate Laravel API resources — controllers, form requests, policies, and test stubs — from a single schema definition. Cuts setup time significantly.</p>
-      <div class="proj-tags">
-        <span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">Node.js</span><span class="chip">CLI</span><span class="chip">Git</span>
-      </div>
-      <div class="proj-links">
-        <a href="#" class="proj-link">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="proj-card fu d3">
       <div class="proj-accent-line pal-purple"></div>
-      <div class="proj-num">06 / Data & Science</div>
-      <h3 class="proj-title">Physics Thesis Simulation Engine</h3>
-      <p class="proj-desc">Computational simulation and data analysis toolkit developed for an Applied Physics thesis at UST. Covers numerical methods, signal processing, and automated chart generation from raw sensor data.</p>
+      <div class="proj-num">08 / Research</div>
+      <h3 class="proj-title">Quantitative Research Dissemination</h3>
+      <p class="proj-desc">Presented quantitative findings at three venues — the 43rd Samahang Pisika ng Pilipinas Conference, the UST RCNAS Symposium, and the UST Mathematics & Physics Seminar.</p>
+      <div class="proj-metrics">
+        <div class="pm"><span class="pm-val">3</span><span class="pm-lbl">Venues</span></div>
+        <div class="pm"><span class="pm-val">2025</span><span class="pm-lbl">Year</span></div>
+      </div>
       <div class="proj-tags">
-        <span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Matplotlib</span><span class="chip">MATLAB</span><span class="chip">LaTeX</span>
-      </div>
-      <div class="proj-links">
-        <a href="#" class="proj-link">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="proj-card fu d1">
-      <div class="proj-accent-line pal-blue"></div>
-      <div class="proj-num">07 / Web App</div>
-      <h3 class="proj-title">Client Invoicing & Sync Portal</h3>
-      <p class="proj-desc">Full-stack invoicing portal with client sync, payment status tracking, and accounting workflow automation. Integrates with third-party accounting APIs for seamless data reconciliation.</p>
-      <div class="proj-tags">
-        <span class="chip">Laravel</span><span class="chip">React</span><span class="chip">TanStack Query</span><span class="chip">MySQL</span><span class="chip">REST API</span>
-      </div>
-      <div class="proj-links">
-        <a href="#" class="proj-link">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="proj-card fu d2">
-      <div class="proj-accent-line pal-green"></div>
-      <div class="proj-num">08 / Frontend</div>
-      <h3 class="proj-title">Form Validation Framework</h3>
-      <p class="proj-desc">Reusable form validation layer built with React Hook Form and Zod schemas — providing type-safe, composable form logic used across multiple product modules with consistent UX patterns.</p>
-      <div class="proj-tags">
-        <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Zod</span><span class="chip">React Hook Form</span><span class="chip">ShadCN</span>
-      </div>
-      <div class="proj-links">
-        <a href="#" class="proj-link">GitHub ↗</a>
+        <span class="chip">Data Storytelling</span><span class="chip">LaTeX</span><span class="chip">Research</span>
       </div>
     </div>
 
@@ -901,7 +1183,7 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 <!-- CONTACT -->
 <section id="contact" class="sect">
   <div class="sect-head fu">
-    <div class="sect-kicker"><div class="kicker-line"></div>Let's Build</div>
+    <div class="sect-kicker"><div class="kicker-line"></div>Let's Talk Data</div>
     <h2 class="sect-title">Get In Touch</h2>
   </div>
 
@@ -944,7 +1226,7 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
         <div class="cl-icon">🎓</div>
         <div>
           <div class="cl-label">Education</div>
-          <div class="cl-val">BS Applied Physics · UST 2021–2025</div>
+          <div class="cl-val">MS Applied Physics (Medical Physics) · UST</div>
         </div>
       </div>
 
@@ -962,11 +1244,11 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
       </div>
       <div class="fg">
         <label>Subject</label>
-        <input class="fi" type="text" placeholder="Project inquiry · Collaboration · etc.">
+        <input class="fi" type="text" placeholder="Analytics role · Dashboard project · etc.">
       </div>
       <div class="fg">
         <label>Message</label>
-        <textarea class="ft" placeholder="Tell me about your project..."></textarea>
+        <textarea class="ft" placeholder="Tell me about the data problem you're solving..."></textarea>
       </div>
       <button class="submit-btn" onclick="handleSend(this)">Send Message ✦</button>
     </div>
@@ -974,7 +1256,7 @@ footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 </section>
 
 <footer>
-  Built by <a href="mailto:a.gabrielmanas@gmail.com">Gabriel Adrian Manas</a> · Full-Stack Developer · BS Applied Physics, UST &nbsp;·&nbsp; © 2026
+  Built by <a href="mailto:a.gabrielmanas@gmail.com">Gabriel Adrian Manas</a> · Data Analyst &amp; Scientist · MS Applied Physics (Medical Physics), UST &nbsp;·&nbsp; © 2026
 </footer>
 
 <script>
@@ -993,15 +1275,38 @@ document.querySelectorAll('a,button').forEach(el => {
   el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; cur.style.transform = 'translate(-50%,-50%) scale(1)'; });
 });
 
-// Scroll animations
+// Count-up animation for numbers
+function animateCount(el) {
+  const target = parseFloat(el.dataset.count);
+  const dec = el.dataset.dec ? +el.dataset.dec : 0;
+  const pre = el.dataset.prefix || '';
+  const suf = el.dataset.suffix || '';
+  const dur = 1700;
+  let startTime = null;
+  const fmt = v => dec ? v.toFixed(dec) : Math.round(v).toLocaleString();
+  function step(t) {
+    if (!startTime) startTime = t;
+    let p = Math.min((t - startTime) / dur, 1);
+    p = 1 - Math.pow(1 - p, 3); // easeOutCubic
+    el.textContent = pre + fmt(target * p) + suf;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// Scroll reveal + chart triggers + counters
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('vis');
       e.target.querySelectorAll('.bar-fill').forEach(b => b.classList.add('go'));
+      e.target.querySelectorAll('[data-count]').forEach(c => {
+        if (!c.dataset.done) { c.dataset.done = '1'; animateCount(c); }
+      });
+      obs.unobserve(e.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.15 });
 document.querySelectorAll('.fu').forEach(el => obs.observe(el));
 
 // Form submit feedback
@@ -1012,20 +1317,17 @@ function handleSend(btn) {
   setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2800);
 }
 
-// Active nav
+// Active nav highlight
 const sects = document.querySelectorAll('section');
 const navAs = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
-  let cur = '';
-  sects.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+  let curId = '';
+  sects.forEach(s => { if (window.scrollY >= s.offsetTop - 130) curId = s.id; });
   navAs.forEach(a => {
     a.style.color = '';
-    if (a.getAttribute('href') === '#' + cur) a.style.color = 'var(--accent)';
+    if (a.getAttribute('href') === '#' + curId) a.style.color = 'var(--accent)';
   });
 }, { passive: true });
-
-
-
 </script>
 </body>
 </html>
